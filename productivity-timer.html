@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="timerlayout col-xs-12 col-md-6">
+
+        <div class="timer">
+            <h1 class="timerPosition display-1 text-center font-weight-bold" id="timerPosition"></h1>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="btn-group d-flex flex-column flex-md-row" role="group" aria-label="Productivity Timer Buttons">
+            <button id="focusButton" class="button info btn-focus">Focus</button>
+            <button id="shortBreakButton" class="button info btn btn-short">Short Break</button>
+            <button id="longBreakButton" class="button info btn btn-long">Long Break</button>
+            <button id="timerReset" class="button info">Stop</button>
+        </div>
+
+    </div>
+
+    <audio id="buzzersound" preload="auto">
+        <source src="audio/timer.ogg" type="audio/ogg">
+        <source src="audio/timer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/jquery.cookie.min.js"></script>
+<script src="js/countdown.min.js"></script>
+<script src="js/timer.min.js"></script>
+
+<script>
+    $(function () {
+        $(".click-hide").click(function () {
+            $(".jumbotron").toggleClass("invisible");
+            $(".banner, .footer").toggleClass("hidden");
+            $(".timer, .buttons-container").toggleClass("text-center");
+            $(".timerlayout").toggleClass("col-md-6");
+        });
+    });
+</script>
