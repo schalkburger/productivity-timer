@@ -1,0 +1,109 @@
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #031a50;
+    color: #ffffff;
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h1,
+p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 8rem;
+  line-height: 1;
+}
+
+p {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.25px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 2.5rem;
+  padding: 0 1rem;
+}
+
+section {
+  display: flex;
+  margin-top: 2rem;
+}
+
+button {
+  font-size: 1.55rem;
+  font-family: inherit;
+  line-height: 1.15;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 6px;
+  background: #003b8f;
+  color: #b7d5ff;
+  border: 1px solid #084c86;
+  padding: 1rem;
+  transition: background 100ms ease-in-out;
+  min-width: 150px;
+}
+
+button:hover {
+  background: #0a3c81;
+}
+
+.fadeIn {
+  animation: fadeInAnimation 0.5s ease-in;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fadeOut {
+  animation: fadeOutAnimation 0.5s ease-in;
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

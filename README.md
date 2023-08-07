@@ -1,10 +1,14 @@
-# Productivity Timer
-A simple time tracker for productivity sprints.
+# Tech Support Helper
 
-[https://schalkburger.io/project/timer/](https://schalkburger.io/project/timer/)
+(formerly called Tech Support Cheat Sheet)
 
-## Requirements
+Dear various parents, grandparents, co-workers, and other ‘not computer people’.
 
-This script requires the following dependencies:
+Save your favourite IT geek some trouble, try to solve your computer problem with the following process.
 
-- [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/download/) 4.3.1 
+[https://tsh.schalkburger.io/](https://tsh.schalkburger.io/)
+
+## Specifications
+
+- https://www.explainxkcd.com/wiki/index.php/627:_Tech_Support_Cheat_Sheet
+- https://xkcd.com/627/

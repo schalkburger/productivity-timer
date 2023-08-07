@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <title>Productivity Timer</title>
+    <meta name="description" content="Productivity Timer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="timer-container">
+        <h1 class="timerPosition" id="timerPosition">25:00</h1>
+        <div class="button-container">
+          <button id="focusButton" class="button">Focus</button>
+          <button id="shortBreakButton" class="button">Short Break</button>
+          <button id="longBreakButton" class="button">Long Break</button>
+          <button id="timerReset" class="button">Stop</button>
+        </div>
+      </div>
+      <audio id="buzzersound" preload="auto">
+        <source src="audio/timer.ogg" type="audio/ogg" />
+        <source src="audio/timer.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!-- <script type="module" src="script.js"></script> -->
+    <!-- <script src="countdown.js"></script> -->
+    <script src="timer-refactor.js"></script>
+  </body>
+</html>
