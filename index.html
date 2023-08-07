@@ -12,10 +12,16 @@
       <div class="timer-container">
         <h1 class="timerPosition" id="timerPosition">25:00</h1>
         <div class="button-container">
-          <button id="focusButton" class="button">Focus</button>
-          <button id="shortBreakButton" class="button">Short Break</button>
-          <button id="longBreakButton" class="button">Long Break</button>
-          <button id="timerReset" class="button">Stop</button>
+          <div class="button-container-focus">
+            <button id="focusButton" class="button button-focus">Focus</button>
+          </div>
+          <div class="button-container-breaks">
+            <button id="shortBreakButton" class="button">Short Break</button>
+            <button id="longBreakButton" class="button">Long Break</button>
+          </div>
+          <div class="button-container-stop">
+            <button id="timerReset" class="button button-stop">Stop</button>
+          </div>
         </div>
       </div>
       <audio id="buzzersound" preload="auto">
@@ -24,8 +30,6 @@
         Your browser does not support the audio element.
       </audio>
     </div>
-    <!-- <script type="module" src="script.js"></script> -->
-    <!-- <script src="countdown.js"></script> -->
-    <script src="timer-refactor.js"></script>
+    <script src="timer.js"></script>
   </body>
 </html>

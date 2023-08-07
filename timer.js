@@ -14,9 +14,25 @@ const focusTimeUpText = "Your focus time is up. Take a break.";
 const shortBreakOverText = "Your short break is over.";
 const longBreakOverText = "Your long break is over.";
 
+// Sound functions
+const sound = document.getElementById("buzzersound");
+sound.autoplay = false;
+sound.loop = false;
+
+function playSound() {
+  sound.currentTime = 0; // Reset the audio to the beginning
+  sound.play();
+}
+
 // Function to update document title
 function updateDocumentTitle(minutes, seconds) {
-  document.title = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+  if (minutes !== undefined && seconds !== undefined) {
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    const formattedSeconds = seconds.toString().padStart(2, "0");
+    document.title = `${formattedMinutes}:${formattedSeconds}`;
+  } else {
+    document.title = currentTimerType;
+  }
 }
 
 // Function to start the timer
@@ -24,18 +40,19 @@ function startTimer(minutes, seconds, completionText) {
   clearInterval(interval); // Clear any existing interval
   currentTimerType = completionText;
   let totalSeconds = minutes * 60 + seconds;
-  updateDocumentTitle(minutes, seconds); // Update document title with initial countdown
+  updateDocumentTitle(minutes, seconds);
   interval = setInterval(() => {
     const minutesLeft = Math.floor(totalSeconds / 60);
     const secondsLeft = totalSeconds % 60;
 
     timerElement.textContent = `${minutesLeft.toString().padStart(2, "0")}:${secondsLeft.toString().padStart(2, "0")}`;
-    updateDocumentTitle(minutesLeft, secondsLeft); // Update document title with countdown
+    updateDocumentTitle(minutesLeft, secondsLeft);
 
     if (totalSeconds <= 0) {
       clearInterval(interval);
-      updateDocumentTitle(0, 0); // Reset document title to display completion text
-      // You can add additional actions here when the timer reaches zero
+      updateDocumentTitle(currentTimerType); // Update document title with completion text
+      playSound(); // Play sound when timer is finished
+      // Additional actions here when the timer reaches zero
     }
 
     totalSeconds--;
@@ -57,21 +74,7 @@ document.getElementById("longBreakButton").addEventListener("click", () => {
 
 document.getElementById("timerReset").addEventListener("click", () => {
   clearInterval(interval); // Clear the interval to stop the timer
-  currentTimerType = null;
-  updateDocumentTitle(0, 0); // Reset document title
+  currentTimerType = "Productivity Timer";
+  updateDocumentTitle("Productivity Timer"); // Set title to "Productivity Timer"
   timerElement.textContent = "25:00";
 });
-
-// Additional styling or features can be added as needed
-
-// Sound functions
-
-const sound = document.getElementById("buzzersound");
-/* Make sure our sound will not autoplay or loop */
-sound.autoplay = false;
-sound.loop = false;
-// Play sound when timer is finished
-function finish() {
-  /* Play the buzzer sound */
-  sound.play();
-}
