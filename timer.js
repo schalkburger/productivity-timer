@@ -15,7 +15,7 @@ const shortBreakOverText = "Your short break is over.";
 const longBreakOverText = "Your long break is over.";
 
 // Sound functions
-const sound = document.getElementById("buzzersound");
+const sound = document.getElementById("timerSound");
 sound.autoplay = false;
 sound.loop = false;
 

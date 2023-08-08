@@ -1,4 +1,5 @@
 :root {
+  --color-background: #031a50;
   --color-white: #fff;
   --color-button-background-default: #003b8f;
   --color-button-background-default-hover: #0a3c81;
@@ -21,13 +22,13 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #031a50;
-    color: #ffffff;
+    background-color: var(--color-background);
+    color: var(--color-white);
   }
 }
 
 a {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
 }
 
@@ -45,7 +46,7 @@ h1 {
 
 p {
   font-size: 2rem;
-  font-weight: 300;
+  font-weight: normal;
   letter-spacing: -0.25px;
 }
 
@@ -57,16 +58,6 @@ p {
   height: 100vh;
   max-width: 800px;
   margin: 0 auto;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 2.5rem;
-  padding: 0 1rem;
 }
 
 .timerPosition {
@@ -94,12 +85,13 @@ button {
   font-family: inherit;
   line-height: 1.15;
   margin: 0 0.5rem;
+  padding: 1rem;
   cursor: pointer;
   border-radius: 6px;
   background: var(--color-button-background-default);
   color: var(--color-button-text-default);
-  border: 1px solid var(--color-button-background-default);
-  padding: 1rem;
+  border: 1px solid;
+  border-color: var(--color-button-background-default);
   transition: background 100ms ease-in-out;
   width: 100%;
 }
@@ -110,7 +102,7 @@ button:hover {
 
 .button-stop {
   background: var(--color-button-background-stop);
-  border: 1px solid var(--color-button--background-stop);
+  border-color: var(--color-button-background-stop);
 }
 
 .button-stop:hover {
@@ -119,7 +111,7 @@ button:hover {
 
 .button-focus {
   background: var(--color-button-background-focus);
-  border: 1px solid var(--color-button-background-focus);
+  border-color: var(--color-button-background-focus);
 }
 
 .button-focus:hover {
@@ -128,30 +120,4 @@ button:hover {
 
 .button-container-breaks button {
   font-size: 1.25rem;
-}
-
-.fadeIn {
-  animation: fadeInAnimation 0.5s ease-in;
-}
-
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.fadeOut {
-  animation: fadeOutAnimation 0.5s ease-in;
-}
-
-@keyframes fadeOutAnimation {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
 }
