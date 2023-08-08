@@ -4,7 +4,7 @@ const shortBreakTime = 5;
 const longBreakTime = 15;
 
 // Timer element
-const timerElement = document.getElementById("timerPosition");
+const timerElement = document.getElementById("timerContainer");
 let interval;
 let currentTimerType = null;
 
@@ -15,13 +15,22 @@ const shortBreakOverText = "Your short break is over.";
 const longBreakOverText = "Your long break is over.";
 
 // Sound functions
-const sound = document.getElementById("timerSound");
-sound.autoplay = false;
-sound.loop = false;
+const soundTimer = document.getElementById("timerSound");
+soundTimer.autoplay = false;
+soundTimer.loop = false;
 
-function playSound() {
-  sound.currentTime = 0; // Reset the audio to the beginning
-  sound.play();
+function playSoundTimer() {
+  soundTimer.currentTime = 0; // Reset the audio to the beginning
+  soundTimer.play();
+}
+
+const soundTicking = document.getElementById("tickingSound");
+soundTicking.autoplay = false;
+soundTicking.loop = false;
+
+function playSoundTicking() {
+  soundTicking.currentTime = 0; // Reset the audio to the beginning
+  soundTicking.play();
 }
 
 // Function to update document title
@@ -48,10 +57,12 @@ function startTimer(minutes, seconds, completionText) {
     timerElement.textContent = `${minutesLeft.toString().padStart(2, "0")}:${secondsLeft.toString().padStart(2, "0")}`;
     updateDocumentTitle(minutesLeft, secondsLeft);
 
+    playSoundTicking();
+
     if (totalSeconds <= 0) {
       clearInterval(interval);
       updateDocumentTitle(currentTimerType); // Update document title with completion text
-      playSound(); // Play sound when timer is finished
+      playSoundTimer(); // Play soundTimer when timer is finished
       // Additional actions here when the timer reaches zero
     }
 

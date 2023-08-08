@@ -1,6 +1,8 @@
 :root {
   --color-background: #031a50;
+  --color-text: var(--color-white);
   --color-white: #fff;
+  --color-button-background: var(--color-button-background-default);
   --color-button-background-default: #003b8f;
   --color-button-background-default-hover: #0a3c81;
   --color-button-background-focus: #003b8f;
@@ -10,6 +12,29 @@
   --color-button-text-default: #b7d5ff;
 }
 
+[data-selected-theme="blue"] {
+  --color-background: #031a50;
+  --color-text: var(--color-white);
+}
+
+[data-selected-theme="purple"] {
+  --color-background: #3b1645;
+  --color-text: var(--color-white);
+}
+
+[data-selected-theme="mono"] {
+  --color-background: #000000;
+  --color-text: var(--color-white);
+  --color-button-background: white;
+  --color-button-background-default: white;
+  --color-button-background-default-hover: #ececec;
+  --color-button-background-focus: white;
+  --color-button-background-focus-hover: #ececec;
+  --color-button-background-stop-hover: #ececec;
+  --color-button-background-stop: white;
+  --color-button-text-default: black;
+}
+
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -17,7 +42,11 @@ html {
 
 body {
   margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-white);
   font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+  min-width: 360px;
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -37,10 +66,12 @@ p {
   margin: 0;
   padding: 0;
   text-align: center;
+  color: var(--color-text);
 }
 
 h1 {
   font-size: 8rem;
+  font-size: 35vw;
   line-height: 1;
 }
 
@@ -60,8 +91,9 @@ p {
   margin: 0 auto;
 }
 
-.timerPosition {
+.timerContainer {
   font-weight: bold;
+  margin: 0 0 1rem 0;
 }
 
 section {
@@ -71,8 +103,7 @@ section {
 
 .button-container {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  gap: 0rem;
 }
 
 .button-container > div {
@@ -83,21 +114,58 @@ section {
 button {
   font-size: 1.55rem;
   font-family: inherit;
-  line-height: 1.15;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
   margin: 0 0.5rem;
-  padding: 1rem;
+  padding: 0.75rem;
   cursor: pointer;
   border-radius: 6px;
-  background: var(--color-button-background-default);
+  background: var(--color-button-background);
   color: var(--color-button-text-default);
   border: 1px solid;
   border-color: var(--color-button-background-default);
   transition: background 100ms ease-in-out;
   width: 100%;
+  min-height: 60px;
+}
+
+button svg {
+  width: 32px;
+  height: 32px;
+}
+
+@media (min-width: 1024px) {
+  button svg {
+    width: 64px;
+    height: 64px;
+  }
+}
+
+button svg path {
+  fill: var(--color-button-text-default);
 }
 
 button:hover {
   background: var(--color-button-background-default-hover);
+}
+
+.button-focus {
+  background: var(--color-button-background);
+  border-color: var(--color-button-background-focus);
+}
+
+.button-focus:hover {
+  background: var(--color-button-background-focus-hover);
+}
+
+.button-break {
+  background: var(--color-button-background);
+  border-color: var(--color-button-background-focus);
+}
+
+.button-break:hover {
+  background: var(--color-button-background-focus-hover);
 }
 
 .button-stop {
@@ -107,15 +175,6 @@ button:hover {
 
 .button-stop:hover {
   background: var(--color-button-background-stop-hover);
-}
-
-.button-focus {
-  background: var(--color-button-background-focus);
-  border-color: var(--color-button-background-focus);
-}
-
-.button-focus:hover {
-  background: var(--color-button-background-focus-hover);
 }
 
 .button-container-breaks button {
