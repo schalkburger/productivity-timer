@@ -1,8 +1,11 @@
 :root {
   --color-background: #031a50;
+  --color-red: #812d00;
+  --color-mono: #2a2c2d;
   --color-text: var(--color-white);
   --color-white: #fff;
   --color-button-background: var(--color-button-background-default);
+  --color-button-border: #003b8f;
   --color-button-background-default: #003b8f;
   --color-button-background-default-hover: #0a3c81;
   --color-button-background-focus: #003b8f;
@@ -10,20 +13,18 @@
   --color-button-background-stop: #8f3700;
   --color-button-background-stop-hover: #812d00;
   --color-button-text-default: #b7d5ff;
+  --color-icon: #fff;
 }
 
+:root,
 [data-selected-theme="blue"] {
   --color-background: #031a50;
   --color-text: var(--color-white);
 }
 
-[data-selected-theme="purple"] {
-  --color-background: #3b1645;
+[data-selected-theme="red"] {
+  --color-background: #812d00;
   --color-text: var(--color-white);
-}
-
-[data-selected-theme="mono"] {
-  --color-background: #000000;
   --color-text: var(--color-white);
   --color-button-background: white;
   --color-button-background-default: white;
@@ -32,16 +33,29 @@
   --color-button-background-focus-hover: #ececec;
   --color-button-background-stop-hover: #ececec;
   --color-button-background-stop: white;
-  --color-button-text-default: black;
+  --color-icon: #812d00;
 }
 
+[data-selected-theme="mono"] {
+  --color-background: #2a2c2d;
+  --color-text: var(--color-white);
+  --color-button-background: white;
+  --color-button-background-default: white;
+  --color-button-background-default-hover: #ececec;
+  --color-button-background-focus: white;
+  --color-button-background-focus-hover: #ececec;
+  --color-button-background-stop-hover: #ececec;
+  --color-button-background-stop: white;
+  --color-icon: #000;
+}
 html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+  max-width: none;
 }
 
 body {
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
   background-color: var(--color-background);
   color: var(--color-white);
   font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
@@ -70,9 +84,26 @@ p {
 }
 
 h1 {
-  font-size: 8rem;
-  font-size: 35vw;
+  font-size: 10rem;
   line-height: 1;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 15rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 20rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 25rem;
+  }
 }
 
 p {
@@ -89,6 +120,7 @@ p {
   height: 100vh;
   max-width: 800px;
   margin: 0 auto;
+  z-index: 300;
 }
 
 .timerContainer {
@@ -124,7 +156,7 @@ button {
   background: var(--color-button-background);
   color: var(--color-button-text-default);
   border: 1px solid;
-  border-color: var(--color-button-background-default);
+  border-color: var(--color-button-border);
   transition: background 100ms ease-in-out;
   width: 100%;
   min-height: 60px;
@@ -143,7 +175,7 @@ button svg {
 }
 
 button svg path {
-  fill: var(--color-button-text-default);
+  fill: var(--color-icon);
 }
 
 button:hover {
@@ -179,4 +211,93 @@ button:hover {
 
 .button-container-breaks button {
   font-size: 1.25rem;
+}
+
+button[data-theme][aria-pressed="true"] {
+  color: var(--color-background);
+}
+
+button[data-theme]:is(:hover, :focus) {
+  box-shadow: 0 0 0 2px var(--color-text) inset;
+}
+
+button[data-theme][aria-pressed="true"]:is(:hover, :focus) {
+  box-shadow: 0 0 0 2px var(--color-background) inset;
+}
+
+/* 1rem(16px) @ 48em(768px) increasing to 2rem(32px) @ 120em(1920px) */
+/* @media (min-width: 48em) {
+  :root {
+    font-size: calc(1rem + ((1vw - 0.48rem) * 1.3889));
+  }
+} */
+
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: absolute;
+  z-index: 400;
+  min-height: 40px;
+}
+
+.theme-switcher {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 0.5rem;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+  height: 50px;
+  width: 140px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 0px 0px 20px 20px;
+  z-index: 400;
+}
+
+header:hover .theme-switcher,
+.theme-switcher:hover {
+  opacity: 1;
+}
+
+.theme-switcher button {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  min-height: auto;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+button[data-theme="blue"],
+button[data-theme="blue"]:hover {
+  background: #031a50;
+}
+
+button[data-theme="red"],
+button[data-theme="red"]:hover {
+  background: #812d00;
+}
+
+button[data-theme="mono"],
+button[data-theme="mono"]:hover {
+  background: #2a2c2d;
+}
+
+.theme-switcher button span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

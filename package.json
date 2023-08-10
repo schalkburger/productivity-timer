@@ -1,5 +1,13 @@
 {
+  "name": "productivity-timer",
+  "source": "index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build --public-url ./"
+  },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.9.2",
+    "@parcel/transformer-webmanifest": "^2.9.2",
     "parcel": "^2.9.2"
   }
 }

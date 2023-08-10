@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html class="no-js" lang="" data-selected-theme="blue">
+<html class="no-js" lang="en" data-selected-theme="">
   <head>
     <meta charset="utf-8" />
     <title>Productivity Timer</title>
     <meta name="description" content="Productivity Timer" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
+    <header>
+      <div class="theme-switcher">
+        <button data-theme="blue" aria-pressed="true"><span>Blue</span></button>
+        <button data-theme="red" aria-pressed="false"><span>Red</span></button>
+        <button data-theme="mono" aria-pressed="false"><span>Mono</span></button>
+      </div>
+    </header>
     <div class="container">
       <div class="timer-container">
         <h1 class="timerContainer" id="timerContainer">25:00</h1>
@@ -42,18 +54,6 @@
             </svg>
           </button>
         </div>
-        <!-- <div class="button-container">
-          <div class="button-container-focus">
-            <button id="focusButton" class="button button-focus">Focus</button>
-          </div>
-          <div class="button-container-breaks">
-            <button id="shortBreakButton" class="button">Short Break</button>
-            <button id="longBreakButton" class="button">Long Break</button>
-          </div>
-          <div class="button-container-stop">
-            <button id="timerReset" class="button button-stop">Stop</button>
-          </div>
-        </div> -->
       </div>
       <audio id="timerSound" preload="auto">
         <source src="audio/timer.ogg" type="audio/ogg" />
@@ -66,6 +66,6 @@
         Your browser does not support the audio element.
       </audio>
     </div>
-    <script src="timer.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
