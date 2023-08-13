@@ -59,9 +59,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-white);
   font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
-  /* min-width: 360px; */
-  /* min-height: 400px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -125,12 +123,20 @@ p {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  max-width: 800px;
   margin: 0 auto;
   z-index: 300;
 }
 
-.timerContainer {
+#timerContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--color-background);
+}
+
+.timerDisplay {
   font-weight: bold;
   margin: 0 0 1rem 0;
 }
@@ -144,6 +150,9 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 @media (min-width: 425px) {
@@ -241,13 +250,6 @@ button[data-theme][aria-pressed="true"]:is(:hover, :focus) {
   box-shadow: 0 0 0 2px var(--color-background) inset;
 }
 
-/* 1rem(16px) @ 48em(768px) increasing to 2rem(32px) @ 120em(1920px) */
-/* @media (min-width: 48em) {
-  :root {
-    font-size: calc(1rem + ((1vw - 0.48rem) * 1.3889));
-  }
-} */
-
 header {
   position: relative;
   width: 100%;
@@ -255,29 +257,54 @@ header {
   justify-content: flex-start;
   position: absolute;
   z-index: 400;
-  min-height: 40px;
+  min-height: 50px;
 }
 
-.theme-switcher {
+.header-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   padding: 0 0.5rem;
-  opacity: 0;
-  transition: all 200ms ease-in-out;
+  transition: all 350ms ease-in-out;
   height: 50px;
-  width: 140px;
-  background: rgba(255, 255, 255, 1);
+  width: 100%;
+  max-width: 200px;
+  background: #ffffff;
   border-radius: 0px 0px 20px 20px;
+  opacity: 0;
+}
+
+.header-container .button {
+  min-height: auto;
+  font-size: 1rem;
+  padding: 0;
+  background: transparent;
+  border: none;
+  width: 28px;
+  height: 28px;
+  margin-left: 0.5rem;
+}
+
+.header-container button svg {
+  height: 28px;
+}
+
+.header-container button svg path {
+  fill: #000;
+}
+
+.theme-switcher {
+  display: flex;
+  opacity: 1;
   z-index: 400;
 }
 
-header:hover .theme-switcher,
-.theme-switcher:hover {
+header:hover .header-container,
+.header-container:hover {
   opacity: 1;
 }
 
@@ -287,7 +314,7 @@ header:hover .theme-switcher,
   border-radius: 50%;
   min-height: auto;
   border: none;
-  margin: 0;
+  margin: 0 0.5rem;
   padding: 0;
 }
 

@@ -4,7 +4,7 @@ const shortBreakTime = 5;
 const longBreakTime = 15;
 
 // Timer element
-const timerElement = document.getElementById("timerContainer");
+const timerElement = document.getElementById("timerDisplay");
 let interval;
 let currentTimerType = null;
 
@@ -127,4 +127,42 @@ const buttons = themeSwitcher.querySelectorAll("button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", handleThemeSelection);
+});
+
+// Request fullscreen
+
+var requestFullscreen = function (ele) {
+  if (ele.requestFullscreen) {
+    ele.requestFullscreen();
+  } else if (ele.webkitRequestFullscreen) {
+    ele.webkitRequestFullscreen();
+  } else if (ele.mozRequestFullScreen) {
+    ele.mozRequestFullScreen();
+  } else if (ele.msRequestFullscreen) {
+    ele.msRequestFullscreen();
+  } else {
+    console.log("Fullscreen API is not supported.");
+  }
+};
+
+var exitFullscreen = function () {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  } else if (document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if (document.msExitFullscreen) {
+    document.msExitFullscreen();
+  } else {
+    console.log("Fullscreen API is not supported.");
+  }
+};
+
+var fsImgButton = document.getElementById("buttonFullscreen");
+var image = document.getElementById("timerContainer");
+
+fsImgButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  requestFullscreen(image);
 });
