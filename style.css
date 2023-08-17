@@ -48,6 +48,7 @@
   --color-button-background-stop: white;
   --color-icon: #000;
 }
+
 html {
   max-width: none;
 }
@@ -58,7 +59,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-white);
   font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -82,22 +83,17 @@ p {
 }
 
 h1 {
-  font-size: 25vw;
+  font-size: 30vw;
   line-height: 1;
+  position: relative;
+  top: -20px;
 }
 
-/* @media (min-width: 1024px) {
+@media (min-width: 580px) {
   h1 {
-    font-size: 15vw;
+    font-size: 35vw;
   }
-} */
-
-p {
-  font-size: 2rem;
-  font-weight: normal;
-  letter-spacing: -0.25px;
 }
-
 /* Header */
 
 button[data-theme][aria-pressed="true"] {
@@ -109,7 +105,7 @@ button[data-theme]:is(:hover, :focus) {
 }
 
 button[data-theme][aria-pressed="true"]:is(:hover, :focus) {
-  box-shadow: 0 0 0 2px var(--color-background) inset;
+  box-shadow: 0 0 1px 2px var(--color-text);
 }
 
 header {
@@ -134,9 +130,8 @@ header {
   transition: all 350ms ease-in-out;
   height: 50px;
   width: 100%;
-  max-width: 200px;
-  background: #ffffff;
-  border-radius: 0px 0px 20px 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0;
   opacity: 0;
 }
 
@@ -146,13 +141,13 @@ header {
   padding: 0;
   background: transparent;
   border: none;
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   margin-left: 0.5rem;
 }
 
 .header-container button svg {
-  height: 28px;
+  height: 24px;
 }
 
 .header-container button svg path {
@@ -171,8 +166,8 @@ header:hover .header-container,
 }
 
 .theme-switcher button {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   min-height: auto;
   border: none;
@@ -215,7 +210,7 @@ button[data-theme="mono"]:hover {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0 auto;
+  margin: 0 1rem;
   z-index: 300;
   min-height: 250px;
 }
@@ -225,55 +220,76 @@ button[data-theme="mono"]:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 1rem;
+  padding: 0 1rem;
+  width: 100%;
   height: 100vh;
   background-color: var(--color-background);
 }
 
 .timerDisplay {
   font-weight: bold;
-  margin: 0 0 1rem 0;
+  margin: 0;
 }
 section {
   display: flex;
   margin-top: 2rem;
 }
 
-.button-container {
-  display: flex;
-  flex-direction: column;
-  /* gap: 1rem; */
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
+footer:hover .buttons-container {
+  transition: all 350ms ease-in-out;
+  opacity: 1;
 }
 
-.button-container > button {
+footer {
+  width: 100%;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 80vw;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.buttons-container > button {
   margin: 0.5rem 0;
 }
 
 @media (min-width: 360px) {
-  .button-container {
+  .buttons-container {
     display: flex;
     flex-direction: row;
   }
-  .button-container > button {
+  .buttons-container > button {
     margin: 0 0.5rem;
   }
 }
 
-.button-container > div {
+@media (min-width: 615px) {
+  .buttons-container {
+    opacity: 1;
+  }
+  .buttons-container > button {
+    margin: 0 0.5rem;
+  }
+}
+
+.buttons-container > div {
   display: flex;
   flex-basis: 100%;
 }
 
 button {
-  font-size: 1.55rem;
+  font-size: 1rem;
   font-family: inherit;
   display: flex;
   justify-content: center;
   line-height: 1;
   margin: 0;
-  padding: 0.75rem;
+  padding: 0.5rem;
   cursor: pointer;
   border-radius: 6px;
   background: var(--color-button-background);
@@ -282,7 +298,7 @@ button {
   border-color: var(--color-button-border);
   transition: background 100ms ease-in-out;
   width: 100%;
-  min-height: 60px;
+  min-height: auto;
 }
 
 button svg {
@@ -332,6 +348,59 @@ button:hover {
   background: var(--color-button-background-stop-hover);
 }
 
-.button-container-breaks button {
+.buttons-container-breaks button {
   font-size: 1.25rem;
+}
+
+@media (max-height: 170px) {
+  h1 {
+    font-size: 25vw;
+    top: 0px;
+  }
+
+  #timerContainer {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+  }
+
+  .main-container {
+    flex-direction: row;
+    min-height: auto;
+  }
+
+  .header-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .buttons-container {
+    flex-wrap: wrap;
+    margin-left: 1rem;
+    position: relative;
+    z-index: 400;
+  }
+
+  .buttons-container > button {
+    max-width: 65px;
+    margin: 0.45rem;
+  }
+
+  .button-focus {
+    order: 1;
+  }
+
+  .button-stop {
+    order: 2;
+  }
+
+  .button-break {
+    order: 3;
+  }
+
+  button svg {
+    width: 25px;
+    height: 25px;
+  }
 }
