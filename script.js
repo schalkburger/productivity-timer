@@ -129,40 +129,9 @@ buttons.forEach((button) => {
   button.addEventListener("click", handleThemeSelection);
 });
 
-// Request fullscreen
+const openPopupButton = document.getElementById("openPopup");
 
-var requestFullscreen = function (ele) {
-  if (ele.requestFullscreen) {
-    ele.requestFullscreen();
-  } else if (ele.webkitRequestFullscreen) {
-    ele.webkitRequestFullscreen();
-  } else if (ele.mozRequestFullScreen) {
-    ele.mozRequestFullScreen();
-  } else if (ele.msRequestFullscreen) {
-    ele.msRequestFullscreen();
-  } else {
-    console.log("Fullscreen API is not supported.");
-  }
-};
-
-var exitFullscreen = function () {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if (document.webkitExitFullscreen) {
-    document.webkitExitFullscreen();
-  } else if (document.mozCancelFullScreen) {
-    document.mozCancelFullScreen();
-  } else if (document.msExitFullscreen) {
-    document.msExitFullscreen();
-  } else {
-    console.log("Fullscreen API is not supported.");
-  }
-};
-
-var fsImgButton = document.getElementById("buttonFullscreen");
-var image = document.getElementById("timerContainer");
-
-fsImgButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  requestFullscreen(image);
+openPopupButton.addEventListener("click", () => {
+  // Open the popup window
+  const popupWindow = window.open("popup.html", "Popup", "width=800,height=600,resizable=yes,scrollbars=yes");
 });

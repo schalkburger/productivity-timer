@@ -1,6 +1,9 @@
 {
   "name": "productivity-timer",
-  "source": "index.html",
+  "source": [
+    "index.html",
+    "popup.html"
+  ],
   "scripts": {
     "start": "parcel",
     "build": "parcel build --public-url ./"
