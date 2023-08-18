@@ -133,5 +133,5 @@ const openPopupButton = document.getElementById("openPopup");
 
 openPopupButton.addEventListener("click", () => {
   // Open the popup window
-  const popupWindow = window.open("popup.html", "Popup", "width=800,height=600,resizable=yes,scrollbars=yes");
+  const popupWindow = window.open("popup.html", "Popup", "location=0,menubar=no,status=0,scrollbars=0,width=380,height=240");
 });
