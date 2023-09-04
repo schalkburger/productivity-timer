@@ -58,7 +58,8 @@ body {
   line-height: 1.5;
   background-color: var(--color-background);
   color: var(--color-white);
-  font-family: Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans", source-sans-pro, sans-serif;
+  font-family: "ArialRounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   overflow: hidden;
 }
 
@@ -97,7 +98,7 @@ h1 {
 
 @media (min-width: 1280px) {
   h1 {
-    font-size: 30vw;
+    font-size: 22vw;
   }
 }
 
@@ -120,7 +121,7 @@ header {
   justify-content: flex-start;
   position: absolute;
   z-index: 400;
-  height: 100vh;
+  height: 100%;
   right: 0;
   top: 0;
   width: 60px;
@@ -129,7 +130,7 @@ header {
 .header-container {
   position: absolute;
   top: 50%;
-  transform: translate(-60px, -50%);
+  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -137,12 +138,17 @@ header {
   padding: 0.75rem 0.5rem;
   transition: all 350ms ease-in-out;
   height: auto;
-  width: 50px;
-  background: rgba(255, 255, 255, 0.95);
+  width: 40px;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 0;
   opacity: 0;
   border-radius: 20px 0 0 20px;
   right: -70px;
+  /* right: 0; */
+  position: absolute;
+  top: 50%;
+  margin-top: -72px;
 }
 
 .header-container .button {
@@ -266,7 +272,7 @@ footer {
 
 .buttons-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   max-width: 80vw;
   margin: 0 auto;
@@ -274,31 +280,22 @@ footer {
 }
 
 .buttons-container > button {
-  margin: 0.5rem 0;
+  margin: 0 0.15rem;
 }
 
 @media (min-width: 360px) {
-  .buttons-container {
-    display: flex;
-    flex-direction: row;
-  }
   .buttons-container > button {
-    margin: 0 0.5rem;
+    margin: 0 0.45rem;
   }
 }
 
 @media (min-width: 615px) {
   .buttons-container {
     opacity: 1;
+    max-width: 60vw;
   }
   .buttons-container > button {
     margin: 0 0.5rem;
-  }
-}
-
-@media (min-width: 615px) {
-  .buttons-container {
-    max-width: 60vw;
   }
 }
 
@@ -375,59 +372,6 @@ button:hover {
 
 .buttons-container-breaks button {
   font-size: 1.25rem;
-}
-
-@media (max-height: 170px) {
-  h1 {
-    font-size: 25vw;
-    top: 0px;
-  }
-
-  #timerContainer {
-    height: auto;
-    margin: 0;
-    padding: 0;
-    flex-direction: row;
-  }
-
-  .main-container {
-    flex-direction: row;
-    min-height: auto;
-  }
-
-  .header-container {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .buttons-container {
-    flex-wrap: wrap;
-    margin-left: 1rem;
-    position: relative;
-    z-index: 400;
-  }
-
-  .buttons-container > button {
-    max-width: 65px;
-    margin: 0.45rem;
-  }
-
-  .button-focus {
-    order: 1;
-  }
-
-  .button-stop {
-    order: 2;
-  }
-
-  .button-break {
-    order: 3;
-  }
-
-  button svg {
-    width: 25px;
-    height: 25px;
-  }
 }
 
 .popup {
