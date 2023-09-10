@@ -128,10 +128,3 @@ const buttons = themeSwitcher.querySelectorAll("button");
 buttons.forEach((button) => {
   button.addEventListener("click", handleThemeSelection);
 });
-
-const openPopupButton = document.getElementById("openPopup");
-
-openPopupButton.addEventListener("click", () => {
-  // Open the popup window
-  const popupWindow = window.open("popup.html", "Popup", "location=0,menubar=no,status=0,scrollbars=0,width=380,height=240");
-});

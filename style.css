@@ -58,8 +58,7 @@ body {
   line-height: 1.5;
   background-color: var(--color-background);
   color: var(--color-white);
-  font-family: "ArialRounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: "ArialRounded", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   overflow: hidden;
 }
 
@@ -84,21 +83,27 @@ p {
 }
 
 h1 {
-  font-size: 30vw;
+  font-size: 6rem;
   line-height: 1;
   position: relative;
   top: -20px;
 }
 
+@media (min-width: 360px) {
+  h1 {
+    font-size: 30vw;
+  }
+}
+
 @media (min-width: 580px) {
   h1 {
-    font-size: 35vw;
+    font-size: 30vw;
   }
 }
 
 @media (min-width: 1280px) {
   h1 {
-    font-size: 22vw;
+    font-size: 24vw;
   }
 }
 
@@ -118,37 +123,35 @@ button[data-theme][aria-pressed="true"]:is(:hover, :focus) {
 
 header {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   position: absolute;
   z-index: 400;
-  height: 100%;
-  right: 0;
-  top: 0;
-  width: 60px;
+  width: 100%;
+  height: 60px;
 }
 
 .header-container {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0.75rem 0.5rem;
   transition: all 350ms ease-in-out;
   height: auto;
-  width: 40px;
+  width: 150px;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
   border-radius: 0;
   opacity: 0;
-  border-radius: 20px 0 0 20px;
-  right: -70px;
-  /* right: 0; */
-  position: absolute;
-  top: 50%;
-  margin-top: -72px;
+  border-radius: 0 0 20px 20px;
+  top: -70px;
+  margin-top: 0;
+}
+
+.theme-switcher {
+  display: flex;
+  opacity: 1;
+  z-index: 400;
 }
 
 .header-container .button {
@@ -177,17 +180,10 @@ header {
   fill: var(--color-background);
 }
 
-.theme-switcher {
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
-  z-index: 400;
-}
-
 header:hover .header-container,
 .header-container:hover {
   opacity: 1;
-  right: 0;
+  top: 0;
 }
 
 .theme-switcher button {
@@ -196,7 +192,7 @@ header:hover .header-container,
   border-radius: 50%;
   min-height: auto;
   border: none;
-  margin: 0.5rem 0;
+  margin: 0 0.5rem;
   padding: 0;
 }
 
@@ -230,26 +226,33 @@ button[data-theme="mono"]:hover {
 /* Main */
 
 .main-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 100vh;
-  margin: 0 1rem;
-  z-index: 300;
-  min-height: 250px;
+  margin: 0;
 }
 
-#timerContainer {
+.timer-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 1rem;
-  padding: 0 1rem;
+  margin: 0;
+  padding: 0 0.5rem;
   width: 100%;
   height: 100vh;
   background-color: var(--color-background);
+}
+
+@media (min-width: 360px) {
+  .timer-container {
+    margin: 0 1rem;
+    padding: 0 1rem;
+  }
 }
 
 .timerDisplay {
@@ -268,15 +271,18 @@ footer:hover .buttons-container {
 
 footer {
   width: 100%;
+  position: relative;
 }
 
 .buttons-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 80vw;
+  max-width: 90%;
   margin: 0 auto;
   opacity: 1;
+  position: relative;
+  z-index: 400;
 }
 
 .buttons-container > button {
@@ -292,10 +298,17 @@ footer {
 @media (min-width: 615px) {
   .buttons-container {
     opacity: 1;
-    max-width: 60vw;
+    max-width: 75vw;
   }
   .buttons-container > button {
     margin: 0 0.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .buttons-container {
+    opacity: 1;
+    max-width: 60vw;
   }
 }
 
@@ -309,6 +322,7 @@ button {
   font-family: inherit;
   display: flex;
   justify-content: center;
+  align-items: center;
   line-height: 1;
   margin: 0;
   padding: 0.5rem;
@@ -320,7 +334,13 @@ button {
   border-color: var(--color-button-border);
   transition: background 100ms ease-in-out;
   width: 100%;
-  min-height: auto;
+  min-height: 40px;
+}
+
+@media (min-width: 615px) {
+  button {
+    min-height: 60px;
+  }
 }
 
 button svg {

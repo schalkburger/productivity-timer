@@ -1,8 +1,7 @@
 {
   "name": "productivity-timer",
   "source": [
-    "index.html",
-    "popup.html"
+    "index.html"
   ],
   "scripts": {
     "start": "parcel",
