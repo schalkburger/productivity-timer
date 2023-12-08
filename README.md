@@ -1,14 +1,7 @@
-# Tech Support Helper
+# Productivity Timer
 
-(formerly called Tech Support Cheat Sheet)
+![Screenshot of the Productivity Timer app](Productivity-Timer-Screenshot.png)
 
-Dear various parents, grandparents, co-workers, and other ‘not computer people’.
+A Pomodoro Productivity Timer app that can supercharge your efficiency and transform the way you work
 
-Save your favourite IT geek some trouble, try to solve your computer problem with the following process.
-
-[https://tsh.schalkburger.io/](https://tsh.schalkburger.io/)
-
-## Specifications
-
-- https://www.explainxkcd.com/wiki/index.php/627:_Tech_Support_Cheat_Sheet
-- https://xkcd.com/627/
+## [https://pt.schalkburger.io](https://pt.schalkburger.io)
