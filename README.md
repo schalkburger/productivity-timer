@@ -1,7 +1,10 @@
+
 # Productivity Timer
 
 ![Screenshot of the Productivity Timer app](Productivity-Timer-Screenshot.png)
 
-A Pomodoro Productivity Timer app that can supercharge your efficiency and transform the way you work
+An app to help you focus on any task you are working on.
 
-[https://pt.schalkburger.io](https://pt.schalkburger.io)
+[https://schalkburger.io/projects/productivity-timer
+](https://schalkburger.io/projects/productivity-timer
+)
